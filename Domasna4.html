@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+$(document).ready(function(){
+  $("#myInputHide").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable2 tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) == -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Pod a</h2>
+<input id="myInput" type="text" placeholder="Search..">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>John</td>
+  </tr>
+  <tr>
+    <td>Mary</td>
+  </tr>
+  <tr>
+    <td>July</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Pod b</h2>
+<input id="myInputHide" type="text" placeholder="Search..">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+  </tr>
+  </thead>
+  <tbody id="myTable2">
+  <tr>
+    <td>John</td>
+  </tr>
+  <tr>
+    <td>Mary</td>
+  </tr>
+  <tr>
+    <td>July</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
